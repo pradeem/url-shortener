@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE = "your-dockerhub-username/url-shortener:latest"
+        IMAGE = "pradeem/url-shortener:latest"
     }
 
     stages {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/your-username/url-shortener.git'
+                git 'https://github.com/pradeem/url-shortener.git'
             }
         }
 
