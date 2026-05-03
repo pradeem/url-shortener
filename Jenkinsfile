@@ -35,7 +35,8 @@ pipeline {
                     kubectl apply -f k8s/
                     kubectl rollout status deployment/url-shortener
                     '''
-                }
+                } 
+            }
         }
     }
 }
