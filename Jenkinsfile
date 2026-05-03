@@ -30,11 +30,12 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh '''
-                kubectl apply -f k8s/
-                kubectl rollout status deployment/url-shortener
-                '''
-            }
+                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                    sh '''
+                    kubectl apply -f k8s/
+                    kubectl rollout status deployment/url-shortener
+                    '''
+                }
         }
     }
 }
